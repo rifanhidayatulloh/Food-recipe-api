@@ -107,7 +107,7 @@ const userController = {
     try {
       const userId = req.APP_DATA.tokenDecoded.user_id;
       const result = await userModel.selectUserId(userId);
-      sucses(res, result, 'Success', 'get user success');
+      sucses(res, result.rows[0], 'Success', 'get user success');
     } catch (err) {
       failed(res, err.message, 'Failed', 'get user failed');
     }
